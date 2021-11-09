@@ -10,6 +10,7 @@ describe('Czechitas Login Page', () => {
 
     //browser.pause(5000); //počká 5 sekúnd
 
+
     const emailField = $('#email'); // ten # nahrádza id, môžeme to napísať aj ako ('[id="email"]')
     console.log('Pole email je enabled: ' + emailField.isEnabled());
     console.log("Pole pre email je viditeľné: " + emailField.isDisplayed());
@@ -21,24 +22,29 @@ describe('Czechitas Login Page', () => {
     const buttonLogin = $('button[type="submit"]');
     console.log("Text tlačítka: " + buttonLogin.getText());
 
-    const forgetButton = $('.btn-link');
-    console.log('Odkaz: ' + forgetButton.getAttribute("href"));
+    //Zabudnuté heslo
+    const odkaz = $('form').$('a').getAttribute('href');
+    console.log('Odkaz na zabudnuté heslo: ' + odkaz);
 
     emailField.setValue('danakulakova@gmail.com');
     passwordField.setValue('Dana123');
     buttonLogin.click();
 
-    $('=Přihlášky').click();
-    browser.pause(5000);
-    //potadiaľto všetko OK
 
-    const riadky = $('tbody').$$('tr');
-    console.log("Toto je text v tabuľke:" + riadky.lenght);
+  //dostať sa na stránku s prihláškami
+    $('=Přihlášky').click(); //hľadanie podľa mien je to ('=meno') keĎ dám *= tak 
+    browser.pause(5000);
+
+    const riadky = $('tbody').$$('tr'); //v tomto prípade to funguje,, lebo máme len jednu tabulku, ale ak je na stránke viac riadkov, tak radšej treba zadať ešte väčší balík, do ktorého spadá element riadok a to je dataTable
+    console.log("Toto je text v tabuľke:");
 
     riadky.forEach(riadky => {
       console.log(riadky.getText());
     })
 
+  
+
     });
 
   });
+  

@@ -3,7 +3,7 @@ import { ReportAggregator, HtmlReporter} from '@rpii/wdio-html-reporter' ;
 exports.config = {
     runner: 'local',
     specs: [
-        './test/specs/**/*.e2e.js'
+        './test/specs/**/organizace.e2e.js'
     ],
     exclude: [
         './test/specs/examples/**/*'
@@ -16,7 +16,7 @@ exports.config = {
         'goog:chromeOptions': {
             args: [
                 // '--window-size=1920,1080',
-                // '--headless',
+                //'--headless',
                 '--no-sandbox',
                 '--disable-gpu',
                 '--disable-setuid-sandbox',

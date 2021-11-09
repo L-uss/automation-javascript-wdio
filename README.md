@@ -4,4 +4,4 @@
 `npm install`
 
 ## Spuštění
-`npx wdio run ./wdio.conf.js`
+``npx wdio run ./wdio.conf.js
