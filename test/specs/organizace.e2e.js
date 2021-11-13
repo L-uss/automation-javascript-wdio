@@ -83,8 +83,9 @@ describe('Czecitas login/logout', () => {
         expect(cols[3].getText()).toMatch(/\d{1,3}(| \d{0,3}) Kč/);
 
       });
+  });
 
-      it('Sada testov 5 - vyhladanie v zozname prihlášok', () => {
+    it('Sada testov 5 - vyhladanie v zozname prihlášok', () => {
         const emailField = $('#email');
         const passwordField = $('#password');
         const loginButton = $('.btn-primary');
@@ -95,25 +96,14 @@ describe('Czecitas login/logout', () => {
         $('=Přihlášky').click();
 
         const searchText = 'Filip';
-        $('input[type="search"]').setValue(searchText);
+        $('input.form-control').setValue(searchText);
         const filteredRows = $('tbody').$$('tr');
         console.log('Tu je ' + filteredRows.length + 'hľadaná prihláška.');
         filteredRows.forEach(row => {
           const cols = row.$$('td');
           expect(cols[0]).toHaveTextContaining(searchText);
 
-          /*const searchField = $('=input[type="search"]');
-          const searchName = 'Filip';
-          searchField.setValue(searchName);
-  
-          const filteredRows = $('.tbody').$$('.tr');
-          filteredRows.forEach(riadok => {
-            const cols = riadok.$$('.td');
-            expect(cols[0]).toHaveText(searchName);*/
-
-        })
-      })
-    })
-
-  })
+      });
+    });
+  });
 });
